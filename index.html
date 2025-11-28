@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 15th Birthday!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        /* --- CUSTOM STYLES --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0fdf4; /* Green-50 */
+            color: #14532d; /* Green-900 */
+            overflow-x: hidden;
+        }
+        .handwritten { font-family: 'Dancing Script', cursive; }
+        .serif { font-family: 'Lora', serif; }
+
+        /* Floating background items */
+        .floating-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .leaf {
+            position: absolute;
+            opacity: 0.4;
+            animation: floatDown 15s linear infinite;
+        }
+        @keyframes floatDown {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Scroll Reveal Effect */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Timeline Line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: #86efac; /* Green-300 */
+            z-index: -1;
+        }
+
+        /* Flip Cards for "Open When" */
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px;
+            cursor: pointer;
+            height: 200px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flip-card-front {
+            background-color: #dcfce7; /* Green-100 */
+            border: 2px solid #86efac;
+        }
+        .flip-card-back {
+            background-color: #ffffff;
+            transform: rotateY(180deg);
+            border: 2px solid #22c55e;
+        }
+
+        /* Paper Letter Styling */
+        .paper {
+            background: #fffdf0; /* Creamy paper color */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-image: linear-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 100% 1.5rem; /* Line height */
+            line-height: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-green-50">
+
+    <!-- FLOATING BACKGROUND LEAVES -->
+    <div class="floating-bg" id="bg-container"></div>
+
+    <!-- 1. ENTRY SCREEN (The "Lock") -->
+    <div id="welcome-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-green-900 text-white transition-all duration-1000">
+        <div class="text-center space-y-6 p-4">
+            <h1 class="text-4xl md:text-6xl handwritten animate__animated animate__pulse animate__infinite">
+                Wait! Stop scrolling...
+            </h1>
+            <p class="text-green-200">I made something for you.</p>
+            <div class="w-full max-w-xs mx-auto">
+                <button onclick="enterSite()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition hover:scale-105">
+                    Click to Open 🔓
+                </button>
+            </div>
+            <p class="text-xs text-green-400 mt-4">(Sound on please 🔊)</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (Hidden until click) -->
+    <div id="main-content" class="hidden relative z-10">
+        
+        <!-- 2. HERO SECTION -->
+        <section class="min-h-screen flex flex-col items-center justify-center text-center p-4 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            
+            <span class="text-green-600 tracking-[0.3em] text-sm uppercase mb-4 animate__animated animate__fadeInDown">It's officially December 2nd</span>
+            <h1 class="text-6xl md:text-9xl handwritten text-green-800 mb-6 animate__animated animate__zoomIn">Happy 15th</h1>
+            <h2 class="text-2xl md:text-4xl serif text-green-700 italic animate__animated animate__fadeInUp">To my favorite person</h2>
+            
+            <div class="mt-12 animate-bounce text-2xl text-green-500">
+                ↓
+            </div>
+        </section>
+
+        <!-- 4. MILESTONE COUNTER (New Section) -->
+        <section id="s2" class="py-24 bg-green-900 reveal text-center text-white">
+            <h2 class="handwritten text-5xl text-gold-accent mb-12">The Power of Fifteen</h2>
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Age -->
+                    <div class="reveal p-8 bg-green-800 rounded-2xl shadow-xl border-b-4 border-pink-accent" style="transition-delay: 0.1s;">
+                        <span class="block text-7xl font-bold mb-2 handwritten text-pink-accent">15</span>
+                        <p class="text-lg uppercase tracking-wider text-green-300">Years of Amazing</p>
+                    </div>
+                    
+                    <!-- Relationship Duration Placeholder -->
+                    <div class="reveal p-8 bg-green-800 rounded-2xl shadow-xl border-b-4 border-gold-accent" style="transition-delay: 0.3s;">
+                        <span id="duration-display" class="block text-5xl font-bold mb-2 handwritten text-gold-accent">41 days</span>
+                        <p class="text-lg uppercase tracking-wider text-green-300">Our Journey Together</p>
+                    </div>
+
+                    <!-- Milestone -->
+                    <div class="reveal p-8 bg-green-800 rounded-2xl shadow-xl border-b-4 border-green-medium" style="transition-delay: 0.5s;">
+                        <span class="block text-4xl font-bold mb-2 handwritten text-green-medium">Best Year Yet</span>
+                        <p class="text-lg uppercase tracking-wider text-green-300">Starting Today</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. THE "WHY YOU" GALLERY (Masonry style) -->
+        <section class="py-20 px-4 max-w-6xl mx-auto reveal">
+            <h2 class="text-center handwritten text-5xl text-green-800 mb-12">The prettiest girl I know</h2>
+            <!-- Update the SRCs to your local images: img/1.jpg, img/2.jpg etc -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="space-y-4">
+                    <img src="photo1.jpeg" class="rounded-2xl shadow-lg w-full hover:scale-105 transition duration-500">
+                    <div class="bg-white p-4 rounded-xl shadow text-center italic text-green-800">"My dearest..."</div>
+                </div>
+                <div class="space-y-4 md:mt-12">
+                     <img src="photo2.jpeg" class="rounded-2xl shadow-lg w-full hover:scale-105 transition duration-500">
+                     <div class="[bg-white p-4 rounded-xl shadow text-center italic text-green-800]">"My favorite photo of you"</div>
+                </div>
+                <div class="space-y-4">
+                    <img src="photo3.jpeg" class="rounded-2xl shadow-lg w-full hover:scale-105 transition duration-500">
+                    <div class="bg-white p-4 rounded-xl shadow text-center italic text-green-800">"Most prettiest smile"</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TIMELINE (Vertical Journey) -->
+        <section class="py-20 px-4 bg-green-100 reveal">
+            <h2 class="text-center handwritten text-5xl text-green-800 mb-16">Our Journey to 15</h2>
+            <div class="max-w-2xl mx-auto relative timeline-line">
+                
+                <!-- Event 1 -->
+                <div class="relative z-10 mb-12 flex flex-col items-center">
+                    <div class="bg-green-500 text-white rounded-full px-4 py-1 mb-2 text-sm font-bold">The beginning</div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center w-full max-w-sm border-2 border-green-200">
+                        <h3 class="font-bold text-lg text-green-900">Confession</h3>
+                        <p class="text-sm text-gray-600 mt-2">Remember how funny it was for me to gaslight u into confessing your feelings...BAHAHAHAHAHAHAHAHHAHA</p>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="relative z-10 mb-12 flex flex-col items-center">
+                    <div class="bg-green-500 text-white rounded-full px-4 py-1 mb-2 text-sm font-bold">Memory #1</div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center w-full max-w-sm border-2 border-green-200">
+                        <h3 class="font-bold text-lg text-green-900">Best moment</h3>
+                        <p class="text-sm text-gray-600 mt-2">Cant forget about that thursday.... it still gives me butterflies everytime when i think aboout it</p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="bg-green-600 text-white rounded-full px-6 py-2 mb-2 text-lg font-bold shadow-lg shadow-green-300">TODAY</div>
+                    <div class="bg-green-600 text-white p-6 rounded-lg shadow-xl text-center w-full max-w-sm transform scale-110">
+                        <h3 class="font-bold text-xl">You turn 15! 🎂</h3>
+                        <p class="text-sm text-green-100 mt-2">And you're only getting more beautiful.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- 7. THE TRAITS (Replacing generic timeline) -->
+        <section id="s3" class="py-24 bg-green-100 reveal">
+            <h2 class="text-center handwritten text-5xl text-green-800 mb-16">The Blooms of Your Personality</h2>
+            <div class="max-w-4xl mx-auto space-y-12 px-6">
+                
+                <!-- TRAIT 1: KINDNESS -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl border-t-4 border-green-500 hover:shadow-2xl transition">
+                    <div class="flex items-center space-x-4 mb-3">
+                        <span class="text-4xl">🌸</span>
+                        <h3 class="text-2xl font-bold text-green-800">The Bloom of Compassion</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        The way you treat everyone, from your friends to strangers, is genuinely inspiring. Your heart is the root of your beauty. You always know how to make someone feel seen and valued, and that is a rare gift.
+                    </p>
+                </div>
+
+                <!-- TRAIT 2: STRENGTH -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl border-t-4 border-green-500 hover:shadow-2xl transition md:ml-20">
+                    <div class="flex items-center space-x-4 mb-3">
+                        <span class="text-4xl">💚</span>
+                        <h3 class="text-2xl font-bold text-green-800">The Vibrant Green Strength</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        You are so much stronger than you know. When things get tough, you face them head-on. Watching you grow and overcome challenges is one of the most incredible things I get to witness. Never doubt your resilience.
+                    </p>
+                </div>
+
+                <!-- TRAIT 3: JOY -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl border-t-4 border-green-500 hover:shadow-2xl transition">
+                    <div class="flex items-center space-x-4 mb-3">
+                        <span class="text-4xl">✨</span>
+                        <h3 class="text-2xl font-bold text-green-800">The Light of Joy</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        You have this contagious energy. You make every hangout instantly better just by being there. Thank you for filling my world with light and making me smile every single day. You are the joy in my garden.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+        <!-- 8. INTERACTIVE "OPEN WHEN" CARDS -->
+        <section class="py-20 px-4 max-w-5xl mx-auto reveal">
+            <h2 class="text-center handwritten text-4xl text-green-800 mb-4">Open When...</h2>
+            <p class="text-center text-gray-500 mb-12">Tap a card to flip it over</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3 class="font-bold text-green-800">You're sad 😢</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-sm text-gray-600">Call me immediately. I'm always here to listen to you, no matter what time it is.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3 class="font-bold text-green-800">You miss me 🥺</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-sm text-gray-600">Look at the moon. I'm probably looking at it too thinking of you.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3 class="font-bold text-green-800">You're happy 😄</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-sm text-gray-600">Keep smiling! That smile is literally my favorite thing in the world.</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Card 4 -->
+                 <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3 class="font-bold text-green-800">You Feel Alone 😔</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-sm text-gray-600">You are never alone. Text me right now and I promise I'll answer and remind you how much you are loved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. THE LONG LETTER -->
+        <section class="py-20 px-4 bg-green-900 reveal">
+            <div class="max-w-3xl mx-auto relative">
+                <!-- Decorative Tape -->
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-yellow-100 opacity-50 rotate-[-2deg]"></div>
+                
+                <div class="paper p-8 md:p-16 rounded shadow-2xl transform rotate-[1deg]">
+                    <h2 class="handwritten text-4xl text-green-900 mb-6">Dear Birthday Nashita,</h2>
+                    
+                    <div class="serif text-lg text-gray-800 space-y-6">
+                        <p>
+                            I’m writing this because sometimes saying "Happy Birthday" just isn't enough. Fifteen is a big deal. It’s the age where you start figuring out who you are, and honestly? The person you are becoming is incredible.
+                        </p>
+                        <p>
+                            I was looking through your photos while making this and I realized how lucky I am. Not just because you’re my girlfriend, but because you’re my best friend too. You listen to my rambling, you laugh at my bad jokes and you make even boring days feel special.
+                        </p>
+                        <p>
+                            I know school and life can get stressful, but I want this year to be full of peace for you. I want you to find more songs you love, eat more of your favorite food and smile more than you did when you were 14.
+                        </p>
+                        <p>
+                            I promise to be there for the highs and the lows. I promise to always hype you up. And I promise to always try to make you as happy as you make me.
+                        </p>
+                        <p>
+                            Have the best day ever, princess.
+                        </p>
+                        <p class="handwritten text-3xl mt-8 text-right">- Your and yours only, Shayan ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. FOOTER & CAKE -->
+        <section class="py-20 text-center reveal">
+            <p class="text-green-600 mb-4 uppercase tracking-widest text-xs">One last thing</p>
+            <div class="text-6xl cursor-pointer hover:scale-125 transition duration-300 inline-block" onclick="cutCake()">
+                🎂
+            </div>
+            <p id="cake-msg" class="text-sm text-green-500 mt-4 opacity-0 transition">Yay! Make a wish! ✨</p>
+            
+            <div class="mt-20 text-xs text-green-300">
+                Created with love • Dec 2025
+            </div>
+        </section>
+
+    </div>
+
+    <!-- AUDIO -->
+    <audio id="bg-music" loop>
+        <source src="music.m4a" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // --- MUSIC & UNLOCK ---
+        function enterSite() {
+            const welcome = document.getElementById('welcome-screen');
+            const main = document.getElementById('main-content');
+            const audio = document.getElementById('bg-music');
+
+            welcome.style.opacity = '0';
+            setTimeout(() => {
+                welcome.style.display = 'none';
+                main.classList.remove('hidden');
+                audio.volume = 0.5;
+                audio.play().catch(e => console.log("Audio requires interaction"));
+                // Trigger confetti immediately upon entry
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#86efac', '#22c55e', '#fbbf24']
+                });
+            }, 1000);
+        }
+
+        // --- SCROLL REVEAL ANIMATION ---
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // --- FALLING LEAVES BG ---
+        function createLeaves() {
+            const container = document.getElementById('bg-container');
+            const leaves = ['🍃', '🍀', '🌿'];
+            for(let i=0; i<15; i++) {
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf');
+                leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
+                leaf.style.left = Math.random() * 100 + '%';
+                leaf.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                leaf.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                leaf.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(leaf);
+            }
+        }
+        createLeaves();
+
+        // --- CAKE INTERACTION ---
+        function cutCake() {
+            document.getElementById('cake-msg').style.opacity = '1';
+            confetti({
+                particleCount: 100,
+                spread: 1000,
+                origin: { y: 0.9 }
+            });
+        }
+    </script>
+</body>
+</html>
