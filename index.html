@@ -1,13 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en">
+    
 <head>
+    
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Happy 15th Birthday Nashita! 💚</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+
+
+
     
     <script>
         tailwind.config = {
@@ -42,6 +54,9 @@
         }
     </script>
 
+
+
+    
     <style>
         /* --- CUSTOM AESTHETICS --- */
         body {
@@ -53,6 +68,9 @@
             overflow-x: hidden;
         }
 
+
+
+        
         /* Glassmorphism Classes */
         .glass {
             background: rgba(255, 255, 255, 0.65);
@@ -60,6 +78,9 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.8);
         }
+
+
+
         
         .glass-dark {
             background: rgba(26, 75, 47, 0.85); /* Green-900 transparent */
@@ -69,6 +90,9 @@
             color: white;
         }
 
+
+
+        
         /* Animations */
         .reveal {
             opacity: 0;
@@ -80,6 +104,9 @@
             transform: translateY(0);
         }
 
+
+
+        
         .floating { animation: float 6s ease-in-out infinite; }
         @keyframes float {
             0% { transform: translateY(0px); }
@@ -87,6 +114,11 @@
             100% { transform: translateY(0px); }
         }
 
+
+
+
+
+        
         /* Polaroid Effect */
         .polaroid {
             background: white;
@@ -95,10 +127,16 @@
             transform: rotate(-2deg);
             transition: transform 0.3s ease;
         }
+
+
+        
         .polaroid:hover {
             transform: scale(1.05) rotate(0deg);
             z-index: 10;
         }
+
+
+        
         .polaroid:nth-child(even) { transform: rotate(3deg); }
 
         /* Timeline specific */
@@ -113,12 +151,19 @@
             z-index: -1;
         }
 
+
+
+        
         /* Flip Cards */
         .flip-card { perspective: 1000px; height: 220px; cursor: pointer; }
         .flip-card-inner {
             position: relative; width: 100%; height: 100%; text-align: center;
             transition: transform 0.8s; transform-style: preserve-3d;
         }
+
+
+
+        
         .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
         .flip-card-front, .flip-card-back {
             position: absolute; width: 100%; height: 100%;
@@ -126,6 +171,9 @@
             border-radius: 1.5rem; display: flex; align-items: center; justify-content: center;
             padding: 1.5rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+
+
+        
         .flip-card-front { background: #dcfce7; color: #166534; border: 2px solid #86efac; }
         .flip-card-back { background: white; color: #166534; transform: rotateY(180deg); border: 2px solid #fbbf24; }
 
@@ -136,6 +184,12 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
+
+        
+
+
+
+        
         /* Heart Trail */
         .heart-trail {
             position: fixed; pointer-events: none;
@@ -147,18 +201,38 @@
             0% { opacity: 1; transform: translateY(0) scale(1); }
             100% { opacity: 0; transform: translateY(-40px) scale(1.5); }
         }
+
+
+
+
+        
     </style>
+
+    
 </head>
+
+    
 <body class="font-sans text-green-900 antialiased selection:bg-green-200 selection:text-green-900">
+    
 
     <div class="fixed bottom-6 right-6 z-50">
+
+        
         <button id="music-btn" onclick="toggleMusic()" class="bg-green-600 hover:bg-green-700 text-white rounded-full p-4 shadow-lg transition-all transform hover:scale-110">
             🔊
         </button>
-    </div>
 
+        
+    </div>
+    
+
+
+
+    
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" id="leaf-container"></div>
 
+
+    
     <div id="welcome-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-green-950 text-white transition-opacity duration-1000">
         <div class="text-center space-y-8 p-6 max-w-lg relative">
             <div class="absolute -top-20 left-1/2 transform -translate-x-1/2 text-9xl opacity-10 animate-pulse">✨</div>
@@ -173,57 +247,60 @@
         </div>
     </div>
 
+
+    
     <div id="main-content" class="hidden relative z-10">
+
+
         
         <section class="min-h-screen flex flex-col items-center justify-center text-center p-4 relative">
-            <div class="absolute top-10 left-10 w-20 h-20 bg-green-300 rounded-full mix-blend-multiply
-                filter blur-xl opacity-70 animate-blob"></div>
-            <div class="absolute bottom-10 right-10 w-20 h-20 bg-gold-400 rounded-full mix-blend-multiply filter 
-                blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-10 left-10 w-20 h-20 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute bottom-10 right-10 w-20 h-20 bg-gold-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
 
-            <span class="inline-block py-1 px-3 rounded-full bg-green-100 
-                text-green-700 text-xs font-bold tracking-[0.3em] uppercase 
-                mb-6 animate__animated animate__fadeInDown border border-green-200">
+            <span class="inline-block py-1 px-3 rounded-full bg-green-100 text-green-700 text-xs font-bold tracking-[0.3em] uppercase mb-6 animate__animated animate__fadeInDown border border-green-200">
                 It's officially December 2nd
             </span>
+
+
             
-            <h1 class="text-7xl md:text-[10rem] font-hand text-transparent
-                bg-clip-text bg-gradient-to-br from-green-600 to-green-800 
-                mb-2 animate__animated animate__zoomIn drop-shadow-sm leading-tight">
+            <h1 class="text-7xl md:text-[10rem] font-hand text-transparent bg-clip-text bg-gradient-to-br from-green-600 to-green-800 mb-2 animate__animated animate__zoomIn drop-shadow-sm leading-tight">
                 Happy 15th
             </h1>
+
+
             
-            <h2 class="text-3xl md:text-5xl font-fancy text-green-700 italic
-                animate__animated animate__fadeInUp animate__delay-1s relative">
+            <h2 class="text-3xl md:text-5xl font-fancy text-green-700 italic animate__animated animate__fadeInUp animate__delay-1s relative">
                 Nashita ✨
-                <svg class="absolute -bottom-2 w-full h-3 text-gold-400
-                    opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor"
-                        stroke-width="2" fill="none" />
+                <svg class="absolute -bottom-2 w-full h-3 text-gold-400 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="2" fill="none" />
                 </svg>
             </h2>
 
-            <p class="mt-8 text-green-600 font-serif max-w-md mx-auto 
-                animate__animated animate__fadeIn animate__delay-2s">
+
+            
+            <p class="mt-8 text-green-600 font-serif max-w-md mx-auto animate__animated animate__fadeIn animate__delay-2s">
                 To the girl who makes my world spin a little faster and shine a little brighter.
             </p>
+
+
             
-            <div class="absolute bottom-10 animate-bounce text-3xl
-                text-green-400 cursor-pointer opacity-50 hover:opacity-100 transition">
+            <div class="absolute bottom-10 animate-bounce text-3xl text-green-400 cursor-pointer opacity-50 hover:opacity-100 transition">
                 <a href="#stats">↓</a>
             </div>
         </section>
 
+
+        
         <section id="stats" class="py-24 relative reveal">
             <div class="max-w-6xl mx-auto px-6">
-                <div class="glass-dark rounded-[3rem] p-12
-                    shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 -mt-10 
-                        -mr-10 w-64 h-64 bg-green-600 rounded-full 
-                        filter blur-3xl opacity-20"></div>
+                <div class="glass-dark rounded-[3rem] p-12 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-green-600 rounded-full filter blur-3xl opacity-20"></div>
 
-                    <h2 class="font-hand text-5xl text-gold-400 mb-
-                        16 text-center">The Magic Numbers 💖</h2>
+
+                    
+                    <h2 class="font-hand text-5xl text-gold-400 mb-16 text-center">The Magic Numbers 💖</h2>
+
+
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative z-10">
                         <div class="space-y-2">
@@ -231,6 +308,8 @@
                             <p class="text-sm uppercase tracking-widest text-green-300">Years of You</p>
                             <p class="text-xs text-green-400/60 font-serif italic">The world got luckier 15 years ago</p>
                         </div>
+
+
                         
                         <div class="space-y-2 transform md:-translate-y-4">
                             <span id="duration-display" class="block text-6xl font-bold font-fancy text-gold-400">41</span>
@@ -238,6 +317,8 @@
                             <p class="text-xs text-green-400/60 font-serif italic">And it feels like a lifetime (in a good way)</p>
                         </div>
 
+
+                        
                         <div class="space-y-2">
                             <span class="block text-6xl font-bold font-fancy text-white">∞</span>
                             <p class="text-sm uppercase tracking-widest text-green-300">Memories to come</p>
@@ -248,6 +329,8 @@
             </div>
         </section>
 
+
+        
         <section class="py-20 px-4 reveal">
             <div class="max-w-3xl mx-auto glass p-10 rounded-xl shadow-lg border-l-8 border-green-600">
                 <div class="font-serif">
@@ -257,13 +340,14 @@
                         1. A rare kind of human who radiates warmth and kindness.<br>
                         2. The prettiest girl I know (fact, not opinion).<br>
                         3. The reason I check my phone every 5 minutes hoping for a notification.<br>
-                        <span class="block mt-4 text-green-600 font-hand text-2xl">"My life got infinitely better
-                            when I met Nashita."</span>
+                        <span class="block mt-4 text-green-600 font-hand text-2xl">"My life got infinitely better when I met Nashita."</span>
                     </p>
                 </div>
             </div>
         </section>
 
+
+        
         <section class="py-24 px-4 overflow-hidden reveal">
             <h2 class="text-center font-hand text-6xl text-green-800 mb-4">Capturing U 📸</h2>
             <p class="text-center text-green-600 font-serif italic mb-16">Just a few glimpses of perfection...</p>
@@ -301,44 +385,33 @@
             <div class="max-w-2xl mx-auto relative timeline-line pb-10">
                 
                 <div class="relative z-10 mb-16 flex flex-col items-center w-full">
-                    <div class="bg-white border-4 border-green-200 
-                        text-green-800 rounded-full w-12 h-12 flex items-center justify-center font-bold shadow-lg mb-4">1</div>
-                    <div class="glass p-6 rounded-2xl shadow-lg text-center 
-                        w-full max-w-sm hover:-translate-y-2 transition duration-300">
-                        <div class="text-xs font-bold text-green-500 uppercase
-                            tracking-widest mb-1">The Confession</div>
+                    <div class="bg-white border-4 border-green-200 text-green-800 rounded-full w-12 h-12 flex items-center justify-center font-bold shadow-lg mb-4">1</div>
+                    <div class="glass p-6 rounded-2xl shadow-lg text-center w-full max-w-sm hover:-translate-y-2 transition duration-300">
+                        <div class="text-xs font-bold text-green-500 uppercase tracking-widest mb-1">The Confession</div>
                         <h3 class="font-bold text-xl text-green-900 font-serif">The "Gaslight" Maneuver</h3>
                         <p class="text-sm text-gray-600 mt-3 leading-relaxed">
-                            Remember how funny it was for me to gaslight u into confessing ur
-                            feelings? BAHAHAHAHA. Still my greatest achievement. 🏆
+                            Remember how funny it was for me to gaslight u into confessing ur feelings? BAHAHAHAHA. Still my greatest achievement. 🏆
                         </p>
                     </div>
                 </div>
 
                 <div class="relative z-10 mb-16 flex flex-col items-center w-full">
-                    <div class="bg-white border-4 border-green-200 text-green-800
-                        rounded-full w-12 h-12 flex items-center justify-center font-bold shadow-lg mb-4">2</div>
-                    <div class="glass p-6 rounded-2xl shadow-lg text-center w-full
-                        max-w-sm hover:-translate-y-2 transition duration-300">
-                        <div class="text-xs font-bold text-green-500 uppercase 
-                            tracking-widest mb-1">Thursday</div>
+                    <div class="bg-white border-4 border-green-200 text-green-800 rounded-full w-12 h-12 flex items-center justify-center font-bold shadow-lg mb-4">2</div>
+                    <div class="glass p-6 rounded-2xl shadow-lg text-center w-full max-w-sm hover:-translate-y-2 transition duration-300">
+                        <div class="text-xs font-bold text-green-500 uppercase tracking-widest mb-1">Thursday</div>
                         <h3 class="font-bold text-xl text-green-900 font-serif">Butterflies 🦋</h3>
                         <p class="text-sm text-gray-600 mt-3 leading-relaxed">
-                            Can't forget about that Thursday... it still gives
-                            me butterflies every single time I think about it. The moment things felt <i>real</i>.
+                            Can't forget about that Thursday... it still gives me butterflies every single time I think about it. The moment things felt <i>real</i>.
                         </p>
                     </div>
                 </div>
 
                 <div class="relative z-10 flex flex-col items-center w-full">
-                    <div class="bg-gold-400 border-4 border-white text-white
-                        rounded-full w-16 h-16 flex items-center justify-center font-bold shadow-xl mb-4 text-2xl">★</div>
-                    <div class="bg-gradient-to-br from-green-600 to-green-800
-                        text-white p-8 rounded-2xl shadow-xl text-center w-full max-w-sm transform scale-105">
+                    <div class="bg-gold-400 border-4 border-white text-white rounded-full w-16 h-16 flex items-center justify-center font-bold shadow-xl mb-4 text-2xl">★</div>
+                    <div class="bg-gradient-to-br from-green-600 to-green-800 text-white p-8 rounded-2xl shadow-xl text-center w-full max-w-sm transform scale-105">
                         <h3 class="font-bold text-2xl font-fancy">Dec 2nd, 2025</h3>
                         <p class="text-green-100 mt-2 font-hand text-xl">U turn 15! 🎂</p>
-                        <p class="text-xs text-green-200 mt-4 border-t 
-                            border-green-500 pt-3">And u're only getting more beautiful.</p>
+                        <p class="text-xs text-green-200 mt-4 border-t border-green-500 pt-3">And u're only getting more beautiful.</p>
                     </div>
                 </div>
 
@@ -346,8 +419,7 @@
         </section>
         
         <section class="py-24 bg-green-900 reveal text-white relative overflow-hidden">
-            <div class="absolute inset-0 bg-[url
-                ('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
             
             <h2 class="text-center font-hand text-5xl text-gold-400 mb-16 relative z-10">15 Reasons Why I Love U 💛</h2>
             
@@ -355,42 +427,26 @@
                 <script>
                     const reasons = [
                         "Ur laugh that brightens my entire day.",
-                     
                         "The way u think—full of wisdom beyond ur years.",
-                        
                         "Ur quiet patience when I'm rambling on and on.",
-                     
                         "The gentle way u care for ur friends and family.",
-                       
                         "Ur incredibly beautiful eyes. 👀",
-                     
                         "That unique sparkle u bring to every hangout.",
-                       
                         "Ur determination when u set a goal.",
-                      
                         "The excitement I feel every time my phone buzzes.",
-                      
                         "The peace I feel just knowing u exist.",
-                    
                         "Ur willingness to be vulnerable with me.",
-                      
                         "The innocence and purity of ur heart.",
-                      
                         "How u inspire me to be a better person.",
-                      
                         "The sound of ur voice (my favorite sound).",
-                    
                         "That specific smile u only save for me.",
-                     
                         "Because u are **u** and there's no one else like u."
                     ];
                     
                     reasons.forEach((reason, index) => {
                         document.write(`
-                            <div class="bg-green-800/50 backdrop-blur-sm border
-                            border-green-700 p-6 rounded-xl hover:bg-green-700 transition duration-300 group">
-                                <span class="text-3xl font-bold text-gold-400
-                                opacity-50 group-hover:opacity-100 transition">#${index + 1}</span>
+                            <div class="bg-green-800/50 backdrop-blur-sm border border-green-700 p-6 rounded-xl hover:bg-green-700 transition duration-300 group">
+                                <span class="text-3xl font-bold text-gold-400 opacity-50 group-hover:opacity-100 transition">#${index + 1}</span>
                                 <p class="mt-2 text-green-100 font-serif text-lg leading-relaxed">${reason}</p>
                             </div>
                         `);
@@ -399,37 +455,30 @@
             </div>
         </section>
 
-        <section class="py-24 px-4 
-            bg-gradient-to-b from-green-50 to-white reveal">
-            <h2 class="text-center font-hand text-6xl 
-                text-green-800 mb-16">The Blooms of Ur Soul 🌸</h2>
+        <section class="py-24 px-4 bg-gradient-to-b from-green-50 to-white reveal">
+            <h2 class="text-center font-hand text-6xl text-green-800 mb-16">The Blooms of Ur Soul 🌸</h2>
             <div class="max-w-5xl mx-auto space-y-8 px-4">
                 
                 <div class="flex flex-col md:flex-row items-center gap-8 glass p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-500">
                     <div class="text-6xl animate-pulse">🌸</div>
                     <div>
-                        <h3 class="text-2xl
-                            font-bold text-green-800 font-fancy mb-2">Compassion</h3>
+                        <h3 class="text-2xl font-bold text-green-800 font-fancy mb-2">Compassion</h3>
                         <p class="text-gray-600 leading-relaxed">
                             The way u treat everyone from ur friends to strangers is genuinely inspiring. Ur heart is the root of ur beauty. U always know how to make someone feel seen.
                         </p>
                     </div>
                 </div>
 
-                <div class="flex flex-col
-                    md:flex-row-reverse items-center gap-8 glass p-8 rounded-3xl 
-                    shadow-sm hover:shadow-xl transition duration-500 border-l-4 md:border-l-0 md:border-r-4 border-green-400">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-8 glass p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-500 border-l-4 md:border-l-0 md:border-r-4 border-green-400">
                     <div class="text-6xl animate-pulse delay-75">🌿</div>
-                    <div class="text-right md:text-left"> <h3 class="text-2xl font-bold text-green-800
-                                                              font-fancy mb-2">Resilience</h3>
+                    <div class="text-right md:text-left"> <h3 class="text-2xl font-bold text-green-800 font-fancy mb-2">Resilience</h3>
                         <p class="text-gray-600 leading-relaxed">
                             U are so much stronger than u know. When things get tough u face them head on. Watching u grow and overcome challenges is one of the most incredible things I get to witness.
                         </p>
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row items-center gap-8 glass p-8 rounded-3xl
-                    shadow-sm hover:shadow-xl transition duration-500">
+                <div class="flex flex-col md:flex-row items-center gap-8 glass p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-500">
                     <div class="text-6xl animate-pulse delay-150">✨</div>
                     <div>
                         <h3 class="text-2xl font-bold text-green-800 font-fancy mb-2">Radiance</h3>
@@ -456,8 +505,7 @@
                             <h3 class="font-bold text-green-800">U're sad</h3>
                         </div>
                         <div class="flip-card-back">
-                            <p class="text-sm text-gray-700 leading-relaxed">Call me immediately.
-                                I don't care if it's 3 AM. I'm always here to listen to u. 📞</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">Call me immediately. I don't care if it's 3 AM. I'm always here to listen to u. 📞</p>
                         </div>
                     </div>
                 </div>
@@ -468,8 +516,7 @@
                             <h3 class="font-bold text-green-800">U miss me</h3>
                         </div>
                         <div class="flip-card-back">
-                            <p class="text-sm text-gray-700 leading-relaxed">Look at the moon.
-                                I'm probably looking at it too, thinking of exactly u. 🌕</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">Look at the moon. I'm probably looking at it too, thinking of exactly u. 🌕</p>
                         </div>
                     </div>
                 </div>
@@ -480,8 +527,7 @@
                             <h3 class="font-bold text-green-800">U're happy</h3>
                         </div>
                         <div class="flip-card-back">
-                            <p class="text-sm text-gray-700 leading-relaxed">Keep smiling! 
-                                That smile is literally my favorite visual in the world. 😁</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">Keep smiling! That smile is literally my favorite visual in the world. 😁</p>
                         </div>
                     </div>
                 </div>
@@ -492,67 +538,50 @@
                             <h3 class="font-bold text-green-800">U feel alone</h3>
                         </div>
                         <div class="flip-card-back">
-                            <p class="text-sm text-gray-700 leading-relaxed">U are never alone. 
-                                Text me right now. I promise to remind u how loved u are. ❤️</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">U are never alone. Text me right now. I promise to remind u how loved u are. ❤️</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-
-
+        
         <section class="py-16 px-6 reveal">
              <div class="max-w-md mx-auto glass p-6 rounded-2xl border border-green-200">
                 <h3 class="font-hand text-3xl text-center text-green-800 mb-6">Songs that remind me of u 🎵</h3>
                 <ul class="space-y-4">
-                    
                     <li class="flex items-center space-x-3 text-green-900">
-                        
                         <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Tumi</p>
                             <p class="text-xs text-green-600">Level Five</p>
-                            
                         </div>
                     </li>
-                    <li class="flex items-center space-x-3 
-                        text-green-900">
+                    <li class="flex items-center space-x-3 text-green-900">
                         <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
-                            
                             <p class="font-bold text-sm">Could i get what i want</p>
                             <p class="text-xs text-green-600">Starberry</p>
                         </div>
-                        
                     </li>
                                         <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-gree
-                            n-200 p-2 rounded-full text-xs">▶</span>
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
-                            <p class="font-bold te
-                                xt-sm">There is a light that never goes out</p>
+                            <p class="font-bold text-sm">There is a light that never goes out</p>
                             <p class="text-xs text-green-600">The Smiths</p>
                         </div>
                     </li>
                                         <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green
-                            -200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-b bord
-                            er-green-100 pb-2">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Lovers rock</p>
-                            <p class="text-xs te
-                                xt-green-600">TV Girl</p>
+                            <p class="text-xs text-green-600">TV Girl</p>
                         </div>
                     </li>
                                         <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 p-2 roun
-                            ded-full text-xs">▶</span>
-                        <div class="flex-1 border-b border
-                            -green-100 pb-2">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Perfect</p>
-                            <p class="text-xs text-
-                                green-600">Ed Sheeran</p>
+                            <p class="text-xs text-green-600">Ed Sheeran</p>
                         </div>
                     </li>
                                         <li class="flex items-center space-x-3 text-green-900">
@@ -564,20 +593,16 @@
                     </li>
                                         <li class="flex items-center space-x-3 text-green-900">
                         <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 bord
-                            er-b border-green-100 pb-2">
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Golden Brown</p>
-                            <p class="text-xs text-green-
-                                600">The Stranglers</p>
+                            <p class="text-xs text-green-600">The Stranglers</p>
                         </div>
                     </li>
                                         <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 p-2 
-                            rounded-full text-xs">▶</span>
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Tomar jonno
                             </p>
-                            
                             <p class="text-xs text-green-600">Arnob</p>
                         </div>
                     </li>
@@ -589,233 +614,165 @@
                         </div>
                     </li>
                                         <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 p-2 ro
-                            unded-full text-xs">▶</span>
-                        <div class="flex-1 border-b 
-                            border-green-100 pb-2">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Amar Shotto</p>
-                            <p class="text-xs text-g
-                                reen-600">Karnival</p>
+                            <p class="text-xs text-green-600">Karnival</p>
                         </div>
                     </li>
                                         <li class="flex items-center space-x-3 text-green-900">
                         <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
-                            <p class="font-bold text-s
-                                m">Srotoshini</p>
+                            <p class="font-bold text-sm">Srotoshini</p>
                             <p class="text-xs text-green-600">Encore</p>
                         </div>
                     </li>
-                                        <li class="fle
-                                            x items-center space-x-3 text-green-900">
+                                        <li class="flex items-center space-x-3 text-green-900">
                         <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 borde
-                            r-b border-green
-                            -100 pb-2">
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Obak Bhalobasha</p>
-                            <p class="text-xs te
-                                xt-green-600">Warfaze</p>
+                            <p class="text-xs text-green-600">Warfaze</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-gree
-                            n-200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-b bor
-                            der-green-100 pb-2">
-                            <p class="font-bold
-                                text-sm">Beche thakar gaan</p>
-                            <p class="text-xs text
-                                -green-600">Anupam Roy</p>
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
+                            <p class="font-bold text-sm">Beche thakar gaan</p>
+                            <p class="text-xs text-green-600">Anupam Roy</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-
-                            200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-b 
-                            border-green-100 pb-2">
-                            <p class="font-bold 
-                                text-sm">I Think They Call This Love</p>
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
+                            <p class="font-bold text-sm">I Think They Call This Love</p>
                             <p class="text-xs text-green-600">Matthew Ifield</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 
-                            p-2 rounded-full text-xs">▶</span>
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
-                            <p class="font-bold tex
-                                t-sm">Co2</p>
+                            <p class="font-bold text-sm">Co2</p>
                             <p class="text-xs text-green-600">Prateek Kuhad</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 p
-                            -2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-b 
-                            border-green-100 pb-2">
-                            <p class="font-bold
-                                text-sm">Cigarettes out the Window</p>
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
+                            <p class="font-bold text-sm">Cigarettes out the Window</p>
                             <p class="text-xs text-green-600">TV Girl</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 p
-                            -2 rounded-full text-xs">▶</span>
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
-                            <p class="font-bold t
-                                ext-sm">Love me not</p>
+                            <p class="font-bold text-sm">Love me not</p>
                             <p class="text-xs text-green-600">Ravyn Lenae</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 p-
-                            2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-b
-                            border-green-100 pb-2">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Bristi Elei</p>
                             <p class="text-xs text-green-600">Wishtree</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
                         <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 bor
-                            der-b border-green-100 pb-2">
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Boba Tunnel</p>
-                            <p class="text-xs text
-                                -green-600">Anupam Roy</p>
+                            <p class="text-xs text-green-600">Anupam Roy</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-20
-                            0 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border
-                            
-                            -b border-green-100 pb-2">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Apocalypse</p>
-                            <p class="text-xs text-g
-                                reen-600">Cigarettes After Sex</p>
+                            <p class="text-xs text-green-600">Cigarettes After Sex</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 
-                            p-2 rounded-full text-xs">▶</span>
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">My Love Mine All mine</p>
                             <p class="text-xs text-green-600">Mitski</p>
                         </div>
                     </li>
-                    
-                                                 
-                    <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 
-                            p-2 rounded-full text-xs">▶</span>
+                                                            <li class="flex items-center space-x-3 text-green-900">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
-                            <p class="font-bold text
-                                -sm">Do I Wanna Know</p>
+                            <p class="font-bold text-sm">Do I Wanna Know</p>
                             <p class="text-xs text-green-600">Arctic Monkeys</p>
                         </div>
                     </li>
-                                                            <li class="flex
-                                                                items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 p
-                            -2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-
-                            b border-green-100 pb-2">
-                            <p class="font-bold text-
-                                sm">Addicted To You</p>
+                                                            <li class="flex items-center space-x-3 text-green-900">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
+                            <p class="font-bold text-sm">Addicted To You</p>
                             <p class="text-xs text-green-600">Shakira</p>
                         </div>
-                                                                
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
                         <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-
-                            b border-green-100 pb-2">
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Mind Over Matter</p>
-                            <p class="text-xs text-gr
-                                een-600">Young the Gi
-                                ant</p>
+                            <p class="text-xs text-green-600">Young the Giant</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
                         <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
-                            <p class="font-bold text
-                                -sm">505</p>
+                            <p class="font-bold text-sm">505</p>
                             <p class="text-xs text-green-600">Arctic Monkeys</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-
-                            200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-b b
-                            order-green-100 pb-2">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">Lover Girl</p>
-                            <p class="text-xs 
-                                text-green-600">Laufey</p>
+                            <p class="text-xs text-green-600">Laufey</p>
                         </div>
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-20
-                            0 p-2 rounded-full text-xs">▶</span>
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
                         <div class="flex-1 border-b border-green-100 pb-2">
                             <p class="font-bold text-sm">From The Start</p>
                             <p class="text-xs text-green-600">Laufey</p>
                         </div>
-                                                                
                     </li>
                                                             <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-200 
-                            p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 bord
-                            er-b border-green-100 pb-2">
-                            <p class="font-bold text-sm">Kingstone</p>
-                            <p class="text-xs tex
-                                t-green-600">Faye Webster</p>
-                        </div>
-                    </li>
-                                                            <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-20
-                            0 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 borde
-                            r-b border-green-100 pb-2">
-                            <p class="font-bold text-sm">Chaina Meye</p>
-                            <p class="text-xs tex
-                                t-green-600">Hridoy Khan</p>
-                        </div>
-                    </li>
-                                              
-                    <li class="flex items-center space-x-
-                        3 text-green-900">
-                        <span class="bg-green-
-                            200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-b border-green-100 pb-2">
-                            <p class="font-bold
-                                text-sm">Ekanto Golap</p>
-                            <p class="text-xs 
-                                text-green-600">Indalo</p>
-                        </div>
-                    </li>
-                                                            <li class="flex items-center space-x-3 text-green-900">
-                        <span class="bg-green-20
-                            0 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 border-b border-green-100 pb-2">
-                            <p class="font-bo
-                                d text-sm">Purnota</p>
-                            <p class="text-xs te
-                                xt-green-600">Warfaze</p>
-                        </div>
-                    </li>
-                                                
-                    <li class="flex items-center space-x-3 text-green-900">
                         <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
-                        <div class="flex-1 borde
-                            r-b border-green-100 pb-2">
-                            <p class="font-bold t
-                                ext-sm">Aniket Prantor</p>
-                            <p class="text-xs 
-                                text-green-600">Artcell</p>
+                        <div class="flex-1 border-b border-green-100 pb-2">
+                            <p class="font-bold text-sm">Kingstone</p>
+                            <p class="text-xs text-green-600">Faye Webster</p>
                         </div>
-                        
+                    </li>
+                                                            <li class="flex items-center space-x-3 text-green-900">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
+                            <p class="font-bold text-sm">Chaina Meye</p>
+                            <p class="text-xs text-green-600">Hridoy Khan</p>
+                        </div>
+                    </li>
+                                                            <li class="flex items-center space-x-3 text-green-900">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
+                            <p class="font-bold text-sm">Ekanto Golap</p>
+                            <p class="text-xs text-green-600">Indalo</p>
+                        </div>
+                    </li>
+                                                            <li class="flex items-center space-x-3 text-green-900">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
+                            <p class="font-bold text-sm">Purnota</p>
+                            <p class="text-xs text-green-600">Warfaze</p>
+                        </div>
+                    </li>
+                                                            <li class="flex items-center space-x-3 text-green-900">
+                        <span class="bg-green-200 p-2 rounded-full text-xs">▶</span>
+                        <div class="flex-1 border-b border-green-100 pb-2">
+                            <p class="font-bold text-sm">Aniket Prantor</p>
+                            <p class="text-xs text-green-600">Artcell</p>
+                        </div>
                     </li>
                      <li class="text-center text-xs text-green-400 mt-4 italic">
                         (And a thousand moreeeeeeee...)
@@ -826,68 +783,46 @@
 
         <section class="py-24 px-4 reveal relative">
             <div class="max-w-3xl mx-auto relative">
-                <div class="absolute -top-4 left-1/2
-                    transform -translate-x-1/2 w-32 h-8
-                    bg-yellow-100/80 shadow-sm rotate-[-2deg] z-10"></div>
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-yellow-100/80 shadow-sm rotate-[-2deg] z-10"></div>
                 
-                <div class="paper-texture p-8 md:p-16
-                    rounded shadow-2xl transform rotate-[1deg] relative">
-                    <h2 class="font-hand text-5xl text-green-9
-                        00 mb-8 border-b-2 border-green-100 pb-4">Dear Birthday Girl...</h2>
+                <div class="paper-texture p-8 md:p-16 rounded shadow-2xl transform rotate-[1deg] relative">
+                    <h2 class="font-hand text-5xl text-green-900 mb-8 border-b-2 border-green-100 pb-4">Dear Birthday Girl...</h2>
                     
-                    <div class="font-serif text-lg text-gray-800
-                        space-y-6 leading-loose">
+                    <div class="font-serif text-lg text-gray-800 space-y-6 leading-loose">
                         <p>
-                            <span class="text-4xl float-left mr-2 mt
-                                -[-10px] font-fancy text-green-700">I</span>’m writing this because sometimes saying "Happy Birthday" just isn't enough. Especially when u turn <b>fifteen</b>. This isn't just another day; it's a monumental shift, a threshold u are crossing. Fifteen is the age where u truly begin to define ur own world, ur values, and the person u want to be. And honestly? The woman u are blossoming into is beyond belief.
+                            <span class="text-4xl float-left mr-2 mt-[-10px] font-fancy text-green-700">I</span>’m writing this because sometimes saying "Happy Birthday" just isn't enough. Especially when u turn <b>fifteen</b>. This isn't just another day; it's a monumental shift, a threshold u are crossing. Fifteen is the age where u truly begin to define ur own world, ur values, and the person u want to be. And honestly? The woman u are blossoming into is beyond belief.
                         </p>
                                                     <p>
-                                                        As I was crafting t
-                                                        his little digital garden and looking through all the memor
-                                                        ies captured in our photos I realized something profound: how incredibly
-                                                        lucky I am. My deep appreciation for u goes far beyond simply being my girlfri
-                                                        end u are absolutely my closest companion my kindred spirit in this vast world.
-                                                        U are the one who listens patiently to my endless thoughts u laugh at all my rid
-                                                        iculously bad jokes and u possess a subtle magic that transforms even the most o
-                                                        rdinary routine days into moments worth treasuring and remembering. Knowing I 
-                                                        have u by my side sharing all the big dreams and the small quiet times is the gr
-                                                        eatest source of strength and comfort I could ever imagine. Thank u for being su
-                                                        ch an effortlessly wonderful partner and friend u make my entire existence bet
-                                                        ter in every way.
-                                                    </p>
-                        
-                        
-                        
-                                                    <p>
-                                                        I understand that being fifteen can bring intense pressures. School can be dema
-                                                        nding friendships can get messy and sometimes even things at home can feel heav
-                                                        y or complicated. If ever ur relationship with ur parents feels strained or if 
-                                                        u need a safe harbor know this: my commitment to u means I will always be a pla
-                                                        ce of refuge. I care about ur peace and emotional well being more than anything 
-                                                        else. If u ever need to talk to cry or simply need someone to sit in silence wit
-                                                        h u I promise I will be there. U don’t have to carry any burden alone. For this 
-                                                        coming year my deepest wish for u is simple: may it be full of profound peace ge
-                                                        nuine joy and uncomplicated happiness. I want u to discover more music u love e
-                                                        at double the amount of ur favorite food and smile more authentically than u e
-                                                        ver have before. U deserve everything good.
-                                                    </p>
-                        
-                                                    <p>
-                                                        On this beautiful day I want to renew my solid promises to u. I promise to be 
-                                                        ur unwavering rock and ur loudest champion standing right next to u through al
-                                                        l the thrilling mountain tops and the inevitable valleys. I promise to always r
-                                                        emind u of how talented beautiful and intelligent u are especially on those dif
-                                                        ficult days when u might momentarily forget ur own worth. And above all I promis
-                                                        e to always try my absolute hardest to make u feel as happy cherished and loved 
-                                                        as u make me feel every day we share. My devotion to u is absolute and I look 
-                                                        forward with immense excitement to every single new memory we will create toget
-                                                        her this year.
+                                                        As I was 
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        crafting
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        this little digital garden and looking through all the memories captured in our photos I realized something profound: how incredibly lucky I am. My deep appreciation for u goes far beyond simply being my girlfriend u are absolutely my closest companion my kindred spirit in this vast world. U are the one who listens patiently to my endless thoughts u laugh at all my ridiculously bad jokes and u possess a subtle magic that transforms even the most ordinary routine days into moments worth treasuring and remembering. Knowing I have u by my side sharing all the big dreams and the small quiet times is the greatest source of strength and comfort I could ever imagine. Thank u for being such an effortlessly wonderful partner and friend u make my entire existence better in every way.
                                                     </p>
                                                     <p>
-                                                        Have the most meaningful unforgettable and joyful day ever my beautiful prin
-                                                        cess. I love u more than words could ever convey.
+                                                        I understand that being fifteen can bring intense pressures. School can be demanding friendships can get messy and sometimes even things at home can feel heavy or complicated. If ever ur relationship with ur parents feels strained or if u need a safe harbor know this: my commitment to u means I will always be a place of refuge. I care about ur peace and emotional well being more than anything else. If u ever need to talk to cry or simply need someone to sit in silence with u I promise I will be there. U don’t have to carry any burden alone. For this coming year my deepest wish for u is simple: may it be full of profound peace genuine joy and uncomplicated happiness. I want u to discover more music u love eat double the amount of ur favorite food and smile more authentically than u ever have before. U deserve everything good.
                                                     </p>
-                        
+                                                    <p>
+                                                        On this beautiful day I want to renew my solid promises to u. I promise to be ur unwavering rock and ur loudest champion standing right next to u through all the thrilling mountain tops and the inevitable valleys. I promise to always remind u of how talented beautiful and intelligent u are especially on those difficult days when u might momentarily forget ur own worth. And above all I promise to always try my absolute hardest to make u feel as happy cherished and loved as u make me feel every day we share. My devotion to u is absolute and I look forward with immense excitement to every single new memory we will create together this year.
+                                                    </p>
+                                                    <p>
+                                                        Have the most 
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        meaningful unforgettable and joyful day ever my beautiful princess. I love u more than words could ever convey.
+                                                    </p>
                         
                         <div class="mt-12 text-right">
                             <p class="font-hand text-3xl text-green-800">Ur and urs only,</p>
@@ -898,43 +833,42 @@
             </div>
         </section>
 
+
+
+
+
+        
         <section class="py-24 px-4 reveal text-center">
-            <h2 class="font-hand text-5xl text-green-800 mb-8">
-                A Lifelong Promise 💍</h2>
-            <div class="max-w-2xl mx-auto bg-white/60 backdrop-blur-md p-10 ro
-                unded-[3rem] shadow-xl border border-green-100 relative overflow-hidden group">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gre
-                    en-300 via-gold-400 to-green-300"></div>
+            <h2 class="font-hand text-5xl text-green-800 mb-8">A Lifelong Promise 💍</h2>
+            <div class="max-w-2xl mx-auto bg-white/60 backdrop-blur-md p-10 rounded-[3rem] shadow-xl border border-green-100 relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-300 via-gold-400 to-green-300"></div>
                 
                 <p class="text-xl font-fancy italic text-green-800 mb-8 leading-relaxed">
-                    "As u step into this chapter of 15, know that my heart walks with u. I 
-                    promise not just to love u today, but to be ur <b class="text-green-600">unwavering anchor</b> 
-                    through the strongest storms, ur <b class="text-green-600">loudest champion</b> when u soar, and ur
-                    <b class="text-green-600">safest harbor</b> when u need rest."
+                    "As u step into this chapter of 15, know that my heart walks with u. I promise not just to love u today, but to be ur <b class="text-green-600">unwavering anchor</b> through the strongest storms, ur <b class="text-green-600">loudest champion</b> when u soar, and ur <b class="text-green-600">safest harbor</b> when u need rest."
                 </p>
                 
-                <div class="inline-block bg-green-600 text-white rounded-full px-8 py-3 text-sm font-bold tracking-
-                    widest shadow-lg transform group-hover:scale-105 transition duration-300">
+                <div class="inline-block bg-green-600 text-white rounded-full px-8 py-3 text-sm font-bold tracking-widest shadow-lg transform group-hover:scale-105 transition duration-300">
                     FOREVER AND ALWAYS
                 </div>
             </div>
         </section>
+
+
+
+
+
         
         <section class="py-24 text-center reveal relative">
-            <p class="text-green-600 mb-6 uppercase trackin
-                g-[0.2em] text-xs font-bold">One last wish</p>
+            <p class="text-green-600 mb-6 uppercase tracking-[0.2em] text-xs font-bold">One last wish</p>
             
             <div class="relative inline-block group">
-                <div class="text-8xl cursor-pointer transform transition duration-50
-                    0 hover:scale-110 hover:-rotate-12 z-10 relative" onclick="cutCake()">
+                <div class="text-8xl cursor-pointer transform transition duration-500 hover:scale-110 hover:-rotate-12 z-10 relative" onclick="cutCake()">
                     🎂
                 </div>
-                <div class="absolute inset-0 bg-gold-400 filter blur-3xl opacity-0 group
-                    -hover:opacity-40 transition duration-500 rounded-full"></div>
+                <div class="absolute inset-0 bg-gold-400 filter blur-3xl opacity-0 group-hover:opacity-40 transition duration-500 rounded-full"></div>
             </div>
             
-            <p id="cake-msg" class="text-lg font-hand text-green-600 mt-6 opacity-0 
-                transition-all duration-1000 transform translate-y-4">
+            <p id="cake-msg" class="text-lg font-hand text-green-600 mt-6 opacity-0 transition-all duration-1000 transform translate-y-4">
                 Yay! May all ur dreams come true! ✨
             </p>
             
@@ -950,6 +884,12 @@
         <source src="music.m4a" type="audio/mpeg">
     </audio>
 
+
+
+
+
+
+    
     <script>
         // --- MOUSE TRAIL EFFECT ---
         document.addEventListener('mousemove', function(e) {
@@ -1030,6 +970,12 @@
             }, 1000);
         }
 
+
+
+
+
+        
+
         // --- SCROLL REVEAL ---
         window.addEventListener('scroll', reveal);
         function reveal() {
@@ -1054,15 +1000,12 @@
             for(let i=0; i<25; i++) {
                 const item = document.createElement('div');
                 item.innerText = items[Math.floor(Math.random() * items.length)];
-         
                 item.style.position = 'absolute';
                 item.style.left = Math.random() * 100 + '%';
-            
                 item.style.top = -10 + '%';
                 item.style.opacity = Math.random() * 0.5 + 0.1;
                 item.style.fontSize = Math.random() * 20 + 15 + 'px';
                 item.style.animation = `fall ${Math.random() * 10 + 10}s linear infinite`;
-               
                 item.style.animationDelay = Math.random() * 5 + 's';
                 
                 // Add keyframes dynamically
@@ -1070,7 +1013,6 @@
                     const style = document.createElement('style');
                     style.innerHTML = `
                         @keyframes fall {
-               
                             0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
                             20% { opacity: 0.6; }
                             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
@@ -1080,7 +1022,6 @@
                 }
                 container.appendChild(item);
             }
-            
         }
         createLeaves();
 
@@ -1089,7 +1030,6 @@
             const msg = document.getElementById('cake-msg');
             msg.style.opacity = '1';
             msg.classList.remove('translate-y-4');
-
             
             confetti({
                 particleCount: 150,
@@ -1099,6 +1039,15 @@
             });
         }
 
+
+
+
+
+
+
+
+
+        
         // --- DURATION CALCULATOR ---
         function calculateDuration() {
             const startDate = new Date('2025-10-22'); // UPDATE THIS TO YOUR ACTUAL START DATE
@@ -1113,4 +1062,3 @@
     </script>
 </body>
 </html>
-
