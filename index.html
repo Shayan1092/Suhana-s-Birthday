@@ -67,10 +67,6 @@
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✨</text></svg>") 16 0, auto; /* Magic cursor */
             overflow-x: hidden;
         }
-        .handwritten { font-family: 'Dancing Script', cursive; }
-        .serif { font-family: 'Lora', serif; }
-
-
 
         
         /* Glassmorphism Classes */
@@ -235,22 +231,19 @@
 
 
     
-    <!-- 1. ENTRY SCREEN (The "Lock") -->
-    <div id="welcome-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-green-900 text-white transition-all duration-1000">
-        <div class="text-center space-y-6 p-4">
-            <h1 class="text-4xl md:text-6xl handwritten animate__animated animate__pulse animate__infinite">
-                Wait! Stop scrolling...
-            </h1>
-            <p class="text-green-200">I made something for you.</p>
-            <div class="w-full max-w-xs mx-auto">
-                <button onclick="enterSite()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition hover:scale-105">
-                    Click to Open 🔓
-                </button>
-            </div>
-            <p class="text-xs text-green-400 mt-4">(Sound on please 🔊)</p>
+    <div id="welcome-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-green-950 text-white transition-opacity duration-1000">
+        <div class="text-center space-y-8 p-6 max-w-lg relative">
+            <div class="absolute -top-20 left-1/2 transform -translate-x-1/2 text-9xl opacity-10 animate-pulse">✨</div>
+            <h1 class="text-5xl md:text-7xl font-hand animate__animated animate__fadeInDown">Wait!! Stop Scrolling...</h1>
+            <p class="text-green-200 text-lg font-serif italic animate__animated animate__fadeInUp animate__delay-1s">
+                "I have a little surprise for u..."
+            </p>
+            <button onclick="enterSite()" class="group relative px-8 py-4 bg-transparent border-2 border-green-400 text-green-400 rounded-full font-bold uppercase tracking-widest hover:bg-green-400 hover:text-green-950 transition-all duration-300 shadow-[0_0_20px_rgba(74,222,128,0.3)] hover:shadow-[0_0_40px_rgba(74,222,128,0.6)]">
+                <span class="relative z-10">Open The Door 🗝️</span>
+            </button>
+            <p class="text-xs text-green-500 mt-4 animate-pulse">(Please turn up ur volume 🎧)</p>
         </div>
     </div>
-
 
 
     
@@ -1067,5 +1060,6 @@
     </script>
 </body>
 </html>
+
 
 
